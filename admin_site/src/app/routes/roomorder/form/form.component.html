@@ -1,0 +1,106 @@
+<div nz-row [nzGutter]="24" class="pt-lg">
+    <form nz-form [formGroup]="form" (ngSubmit)="_submitForm()" [nzLayout]="'vertical'">
+        <nz-card [nzBordered]="false" [nzTitle]="card_title" >
+            <div nz-row [nzGutter]="16">
+              
+
+                <div nz-col nzMd="6" nzSm="12" nzXs="24" style="text-align: left;" >
+                    <!-- <div nz-form-item nz-row>
+                        <div nz-form-label nz-col><label>用户ID:</label></div>
+                        <div nz-form-control nz-col nzHasFeedback [nzValidateStatus]="user_id">
+                                <nz-select formControlName="user_id"  nzAllowClear nzPlaceHolder="用户ID">
+                                   <nz-option *ngFor="let i of data2" [nzValue]="i.id" [nzLabel]="i.id"></nz-option>
+                                </nz-select>
+                        </div>
+                    </div> -->
+                    <div nz-form-item nz-row>
+                        <div nz-form-label nz-col>
+                            <label>预订人:</label>
+                        </div>
+                        <div nz-form-control nz-col nzHasFeedback [nzValidateStatus]="user_id">
+    
+                            <nz-select formControlName="user_id" [nzPlaceHolder]="'请选择预订人'"  nzAllowClear>
+                                <nz-option *ngFor="let i of data2" [nzLabel]="i.name" [nzValue]="i.id" [nzDisabled]="i.disabled">
+                                </nz-option>
+                            </nz-select>
+                            <p nz-form-explain *ngIf="form.controls['user_id'].invalid && (form.controls['user_id'].dirty || form.controls['user_id'].touched) && form.controls['user_id'].errors.required">
+                                请选择用户ID
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+               
+                <div nz-col nzMd="6" nzSm="12" nzXs="24" style="text-align: left;">
+                    <div nz-form-item nz-row>
+                        <div nz-form-label nz-col><label>房型:</label></div>
+                        <div nz-form-control nz-col nzHasFeedback [nzValidateStatus]="layout_id">
+                            <nz-select  formControlName="layout_id" nzAllowClear nzPlaceHolder="房型">
+                                <nz-option *ngFor="let j of data1"  [nzValue]="j.id" [nzLabel]="j.layout"></nz-option>
+                            </nz-select>
+                        </div>
+                    </div>
+                </div>
+
+                <div nz-col nzMd="6" nzSm="12" nzXs="24" style="text-align: left;">
+                    <div nz-form-item nz-row>
+                        <div nz-form-label nz-col><label>开始时间:</label></div>
+                        <div nz-form-control nz-col nzHasFeedback [nzValidateStatus]="start_time">
+                            <nz-datepicker formControlName="start_time" [nzPlaceHolder]="'开始时间'" nzFormat="YYYY/MM/DD"></nz-datepicker>
+                                <p nz-form-explain *ngIf="form.controls['start_time'].invalid && (form.controls['start_time'].dirty || form.controls['start_time'].touched) && form.controls['start_time'].errors.required">
+                                    请选择开始时间
+                                </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div nz-col nzMd="6" nzSm="12" nzXs="24" style="text-align: left;" >
+                    <div nz-form-item nz-row>
+                        <div nz-form-label nz-col><label>预订天数:</label></div>
+                        <div nz-form-control nz-col nzHasFeedback [nzValidateStatus]="days">
+                            <nz-input formControlName="days" nzPlaceHolder="请输入预订天数" nzSize="large"></nz-input>
+                        </div>
+                    </div>
+                </div>
+
+               
+                <div nz-col nzMd="6" nzSm="12" nzXs="24" style="text-align: left;">
+                    <div nz-form-item nz-row>
+                        <div nz-form-label nz-col><label>房间数量:</label></div>
+                        <div nz-form-control nz-col nzHasFeedback [nzValidateStatus]="rooms">
+                            <nz-input formControlName="rooms" nzPlaceHolder="请输入预订房间数量" nzSize="large"></nz-input>
+                        </div>
+                    </div>
+                </div>
+
+                <div nz-col nzMd="6" nzSm="12" nzXs="24" style="text-align: left;">
+                    <div nz-form-item nz-row>
+                        <div nz-form-label nz-col><label>状态:</label></div>
+                        <div nz-form-control nz-col nzHasFeedback [nzValidateStatus]="status">
+                            <nz-select nzShowSearch nzAllowClear formControlName="status" nzPlaceHolder="请选择">
+                                <nz-option nzLabel="有效" [nzValue]="true"></nz-option>
+                                <nz-option nzLabel="无效" [nzValue]="false"></nz-option>
+                            </nz-select>
+                        </div>
+                    </div>
+                </div>
+
+                <div nz-col nzMd="6" nzSm="12" nzXs="24" style="text-align: left;">
+                    <div nz-form-item nz-row>
+                        <div nz-form-label nz-col><label>备注:</label></div>
+                        <div nz-form-control nz-col nzHasFeedback [nzValidateStatus]="comment">
+                            <nz-input formControlName="comment" nzPlaceHolder="请输入备注" nzSize="large"></nz-input>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </nz-card> 
+
+        <div>
+            <error-collect></error-collect>
+            <button nz-button [nzType]="'primary'" nzSize="large">提交</button>
+            <button nz-button [nzType]="'primary'" type="button" nzSize="large" (click)="goBack()">返回</button>
+        </div>
+    </form>
+</div>

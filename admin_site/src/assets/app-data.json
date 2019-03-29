@@ -1,0 +1,49 @@
+{
+    "app": {
+        "name": "微信预订后台管理",
+        "description": "Ng-zorro admin panel front-end framework"
+    },
+    "user": {
+        "name": "Admin",
+        "avatar": "./assets/img/zorro.svg",
+        "email": "cipchk@qq.com"
+    },
+    "menu": [
+        
+
+        {
+            "text": "微信后台管理",
+            "translate": "微信后台管理",
+            "link": "",
+            "group": true,
+
+            "children": [
+
+                {
+                    "text": "系统设置",
+                    "link": "",
+                    "acl": "admin",
+                    "icon": "icon-settings",
+                    "children": [
+                        {
+                            "text": "用户管理",
+                            "link": "/user/page"
+                        }
+
+                    ]
+                },
+                {
+                    "text": "数据字典",
+                    "icon": "anticon anticon-book",
+                    "link": "/dict/page"
+                },
+                {
+                  "text": "产品发布",
+                  "icon": "icon-home",
+                  "link": "/roomlayout/page"
+                }
+
+            ]
+        }
+    ]
+}

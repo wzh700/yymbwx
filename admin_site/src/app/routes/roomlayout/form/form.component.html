@@ -1,0 +1,83 @@
+<div nz-row [nzGutter]="24" class="pt-lg">
+    <form nz-form [formGroup]="form" (ngSubmit)="_submitForm()" [nzLayout]="'vertical'">
+        <nz-card [nzBordered]="false" [nzTitle]="card_title" >
+            <div nz-row [nzGutter]="16">
+                <div nz-col nzMd="6" nzSm="12" nzXs="24" style="text-align: left;" >
+                    <div nz-form-item nz-row>
+                        <div nz-form-label nz-col><label>房型名称:</label></div>
+                        <div nz-form-control nz-col nzHasFeedback [nzValidateStatus]="layout">
+                            <nz-input formControlName="layout" nzPlaceHolder="请输入房型" nzSize="large"></nz-input>
+                        </div>
+                    </div>
+                </div>
+
+                <div nz-col nzMd="6" nzSm="12" nzXs="24" style="text-align: left;">
+                    <div nz-form-item nz-row>
+                        <div nz-form-label nz-col><label>价格1:</label></div>
+                        <div nz-form-control nz-col nzHasFeedback [nzValidateStatus]="price_01">
+                            <nz-input formControlName="price_01" nzPlaceHolder="请输入价格" nzSize="large"></nz-input>
+                        </div>
+                    </div>
+                </div>
+
+                <div nz-col nzMd="6" nzSm="12" nzXs="24" style="text-align: left;">
+                    <div nz-form-item nz-row>
+                        <div nz-form-label nz-col><label>价格2:</label></div>
+                        <div nz-form-control nz-col nzHasFeedback [nzValidateStatus]="price_02">
+                            <nz-input formControlName="price_02" nzPlaceHolder="请输入价格2" nzSize="large"></nz-input>
+                        </div>
+                    </div>
+                </div>
+
+                <div nz-col nzMd="6" nzSm="12" nzXs="24" style="text-align: left;">
+                    <div nz-form-item nz-row>
+                        <div nz-form-label nz-col><label>预订价格:</label></div>
+                        <div nz-form-control nz-col nzHasFeedback [nzValidateStatus]="book_price">
+                            <nz-input formControlName="book_price" nzPlaceHolder="请输入预订价格" nzSize="large"></nz-input>
+                        </div>
+                    </div>
+                </div>
+
+                <div nz-col nzMd="6" nzSm="12" nzXs="24" style="text-align: left;">
+                    <div nz-form-item nz-row>
+                        <div nz-form-label nz-col><label>包含早餐:</label></div>
+                        <div nz-form-control nz-col nzHasFeedback [nzValidateStatus]="breakfast">
+                            <nz-select nzShowSearch nzAllowClear formControlName="breakfast" nzPlaceHolder="请选择">
+                                <nz-option nzLabel="包含" [nzValue]="true"></nz-option>
+                                <nz-option nzLabel="不包含" [nzValue]="false"></nz-option>
+                            </nz-select>
+                        </div>
+                    </div>
+                </div>
+
+                <div nz-col nzMd="6" nzSm="12" nzXs="24" style="text-align: left;">
+                    <div nz-form-item nz-row>
+                        <div nz-form-label nz-col><label>描述:</label></div>
+                        <div nz-form-control nz-col nzHasFeedback [nzValidateStatus]="desc">
+                            <nz-input formControlName="desc" nzPlaceHolder="请输入描述" nzSize="large"></nz-input>
+                        </div>
+                    </div>
+                </div>
+
+                <div nz-col nzMd="6" nzSm="12" nzXs="24" style="text-align: left;">
+                    <div nz-form-item nz-row>
+                        <div nz-form-label nz-col><label>上传图片:</label></div>
+                        <div nz-form-control nz-col nzHasFeedback [nzValidateStatus]="desc">
+                            <input  type="file" name="pic" accept="image/*" (change)="onchange($event)">
+                        </div>
+                    </div>
+                </div>
+    
+
+            </div>
+        </nz-card> 
+        
+
+        <div>
+            <error-collect></error-collect>
+            <button nz-button [nzType]="'primary'" nzSize="large">提交</button>
+            <button nz-button [nzType]="'primary'" type="button" nzSize="large" (click)="goBack()">返回</button>
+        </div>
+    </form>
+</div>
+

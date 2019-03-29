@@ -1,0 +1,33 @@
+<div nz-row [nzGutter]="24" class="pt-lg">
+    <form nz-form [formGroup]="form" (ngSubmit)="_submitForm()" [nzLayout]="'vertical'">
+        <nz-card [nzBordered]="false" [nzTitle]="card_title" >
+            <div nz-row [nzGutter]="16">
+                <div nz-col nzMd="6" nzSm="12" nzXs="24" style="text-align: left;" >
+                    <div nz-form-item nz-row>
+                        <div nz-form-label nz-col><label>车牌号:</label></div>
+                        <div nz-form-control nz-col nzHasFeedback [nzValidateStatus]="no">
+                            <nz-input formControlName="no" nzPlaceHolder="请输入车牌号" nzSize="large"></nz-input>
+                        </div>
+                    </div>
+                </div>
+ 
+                <div nz-col nzMd="6" nzSm="12" nzXs="24" style="text-align: left;">
+                    <div nz-form-item nz-row>
+                        <div nz-form-label nz-col><label>采购日期:</label></div>
+                        <div nz-form-control nz-col nzHasFeedback [nzValidateStatus]="buydate">
+                            <nz-datepicker formControlName="buydate" [nzSize]="size" [nzPlaceHolder]="'请输入日期'"></nz-datepicker>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </nz-card> 
+
+        <div>
+            <error-collect></error-collect>
+            <button nz-button [nzType]="'primary'" nzSize="large">提交</button>
+            <button nz-button [nzType]="'primary'" type="button" nzSize="large" (click)="goBack()">返回</button>
+        </div>
+    </form>
+</div>
